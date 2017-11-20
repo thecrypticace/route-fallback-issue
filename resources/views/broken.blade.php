@@ -22,13 +22,14 @@
             }
 
             .full-height {
-                height: 100vh;
+                min-height: 100vh;
             }
 
             .flex-center {
                 align-items: center;
                 display: flex;
                 justify-content: center;
+                flex-flow: column;
             }
 
             .position-ref {
@@ -62,30 +63,27 @@
             .m-b-md {
                 margin-bottom: 30px;
             }
+
+            pre {
+                text-align: left;
+            }
+
+            .trace-highlight {
+                display: inline-block;
+                background: #333;
+                padding: 0.25em;
+                margin: 0.25em -0.25em;
+            }
         </style>
     </head>
     <body>
         <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-                        <a href="{{ route('register') }}">Register</a>
-                    @endauth
-                </div>
-            @endif
-
             <div class="content">
                 <div class="title m-b-md">
-                    RespondWithFallback
+                    Broken Page
                 </div>
 
-                <div class="links">
-                    <a href="/normal">Show normal page</a>
-                    <a href="/broken">Show broken page</a>
-                </div>
+                <pre><code>{!! $trace !!}</code></pre>
             </div>
         </div>
     </body>

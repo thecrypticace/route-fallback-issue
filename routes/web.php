@@ -1,5 +1,7 @@
 <?php
 
+use App\Backtrace;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,3 +23,12 @@ Route::get('/normal', function () {
     ]);
 });
 
+Route::get('/broken', function () {
+    abort(404);
+});
+
+Route::fallback(function () {
+    return view("broken", [
+        "trace" => Backtrace::toHere(),
+    ]);
+})->name("fallback");

@@ -13,6 +13,14 @@ class Backtrace
             "pattern" => "*runRoute",
             "template" => "<strong class='trace-highlight' style='color: limegreen;'>%s</strong>",
         ],
+        [
+            "pattern" => "*respondWithRoute",
+            "template" => "<strong class='trace-highlight' style='color: lightblue;'>%s</strong>",
+        ],
+        [
+            "pattern" => "*App\Exceptions\Handler::render*",
+            "template" => "<strong class='trace-highlight' style='color: pink;'>%s</strong>",
+        ],
     ];
 
     public static function toHere()
