@@ -14,3 +14,10 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/normal', function () {
+    return view("normal", [
+        "trace" => Backtrace::toHere(),
+    ]);
+});
+
