@@ -24,6 +24,8 @@ class EncryptCookies extends Middleware
         
         $response = parent::handle($request, $next);
         
+        $this->dump("Response cookies");
+        $this->dumpCookies($response->headers->getCookies());
         
         $this->dump("Leaving EncryptCookies");
 
